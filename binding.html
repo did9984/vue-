@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<style>
+  .strike-through{
+    text-decoration: line-through;
+    color:blueviolet;
+  }
+
+  .dark{
+    background-color: blue;
+  }
+</style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <img src="g7YXALdr_400x400.jpg" >
+    <!-- 각 tag 의 속성에 접근할때 사용-->
+    <img v-bind:src="fileName" >v-bind로 지정</img>
+    <!-- v-bind =경로를 지정할때 사용 -->
+<br>
+    <!-- a태그 -->
+    <a v-bind:href="myURL">링크를 V-BIND로 지정</a>
+    <br>
+    <a href="www.naver.com">링크를  지정</a>
+
+    <!-- align -->
+    <p align="right">우측정렬 직접 저장</p>
+    <p v-bind:align="myAlign">우측정렬을 v-bind로 지정</p>
+
+    <!-- 인라인 스타일 지정  -->
+    <p style="color: #E80">문자색</p>
+    <p v-bind:style="{color:myColor}">문자색 직접 지정</p>
+
+    <p style="font-size:200%">크기</p>
+     <p v-bind:style="{fontSize : mySize}">글자크기를 v-bind로 지정</p>
+
+     <p style="background-color:aqua;">배경색ㅈ ㅣㄱ접지정</p>
+     <p v-bind:style="{backgroundColor : myBackColor}">배경색ㅈ ㅣㄱ접지정</p>
+  </div>
+
+  <p class="strike-through">직접 </p>
+  <p v-bind:class="myClass">v-bind </p>
+  <p v-bind:class="[myClass, darkClass]">v-bind를 복수로 지정 </p>
+  <p v-bind:class="{'strike-through':isON}">클래스 ON/OFF </p>
+
+  <button type="button" v-on:click="changeClass">ON/OFF</button>
+  <script>
+new Vue({
+  el:'#app',
+  data:{
+    fileName:'g7YXALdr_400x400.jpg',
+    myURL:'www.naver.com',
+    myAlign:'right',
+    myColor: '#E80',
+    mySize:'200%',
+    myBackColor:'blue',
+    myClass:'strike-through',
+    darkClass:'dark',
+    isON :true
+  },
+  method:{
+    changeClass : function(){
+      if(this.isON){}
+      this.isON =false;
+    }
+  }
+})
+
+  </script>
+</body>
+</html>

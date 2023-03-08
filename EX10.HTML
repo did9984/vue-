@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <input type="number" v-model="a">
+    <input type="number" v-model="b">
+    <button v-on:click="add">덧셈계산</button>
+    <button v-on:click="minus">뺄셈계산</button>
+    <button v-on:click="x">곱셈</button>
+    <button v-on:click="division">나눗셈</button>
+    <p>결과는{{number}}</p>
+<p>{{count2}}</p>
+<button v-on:click="count2Up(3)">3씩 증가</button>
+<button v-on:click="count2Up(10)">10씩 증가</button>
+<button v-on:click="count2Up(100)">100씩 증가</button>
+  </div>
+  <script>
+  new Vue({
+    el: '#app',
+     data: {
+      a:"",
+      b:"",
+      number:0,
+      count2:0
+    },
+    methods: {
+      add: function(){
+        this.number = parseInt(this.a) + parseInt(this.b);
+      },
+       minus: function () {
+        this.number = parseInt(this.a) - parseInt(this.b);
+      },
+       x: function () {
+        this.number = parseInt(this.a) * parseInt(this.b);
+      },
+       division: function () {
+        this.number = parseInt(this.a) / parseInt(this.b);
+      },
+    
+       count2Up: function (value) {
+      this.count2 += value;
+
+    }
+  }}
+  )
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+  <!-- Mustache 콧수염 -->
+  <!-- {{}} -->
+  <div id="app">  
+    <p>{{myText}}</p>
+    <!-- v-text  type=속성 -->
+    <p v-text="myText"></p><!--innerTEXT-->
+    <!--문자로인식-->
+    <!-- v-text로도 실행가능 id로 넘겨주는거랑 같다  -->
+    <p v-html="myText"></p><!--innerHTML-->
+    <!--태그가 존재하면 태그로 인식-->
+    <button v-on:click="changeText">변경</button>
+    <!-- changeText 태그를 가져와서 myText 내용으로 변경   -->
+  </div>
+  <p>{{myText}}</p> <!-- id 값을 벗어나게 되면 사용불가 -->
+  <script>
+    new Vue({
+      el:'#app', // 들어갈 위치  id값을 불러옴 
+      data:{
+         myText:'Hello!!'  // 들어갈 내용
+      },
+      methods :{
+        changeText: function(){
+          this.myText =`<button type="button">추가</button>` 
+        }
+      }
+    })
+  </script>
+</body>
+</html>
